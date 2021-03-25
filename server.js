@@ -31,8 +31,9 @@ connection.once('open', () => {
 app.use('/users', UserRouter);
 app.use('/notes', NotesRouter);
 
-app.use(express.static('client/build'));
-
+if(process.env.NODE_ENV === 'production') {
+    app.use(express.static('frontend/build'));
+}
 
 app.listen(port, () => {
     console.log(`Server is running in port: ${port}`);

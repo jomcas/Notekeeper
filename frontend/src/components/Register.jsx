@@ -62,7 +62,7 @@ var Register = () => {
     };
 
     axios
-      .post("add", myUser)
+      .post("/users/add", myUser)
       .then((res) => {
 
         if (res.data.success) {

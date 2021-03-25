@@ -16,16 +16,23 @@ app.use(express.json());
 
 // MongoDB Connection
 const uri = process.env.ATLAS_URI;
-mongoose.connect(uri, {useFindAndModify: false, useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true});
+mongoose.connect(uri, {
+    useFindAndModify: false,
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true
+});
 
 const connection = mongoose.connection;
-connection.once('open', ()=> {
+connection.once('open', () => {
     console.log("MongoDB database connection is established.");
 });
 
-
 app.use('/users', UserRouter);
 app.use('/notes', NotesRouter);
+
+app.use(express.static('client/build'));
+
 
 app.listen(port, () => {
     console.log(`Server is running in port: ${port}`);

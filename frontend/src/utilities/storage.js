@@ -19,7 +19,6 @@ function setInStorage(key, obj) {
     }
     try {
         localStorage.setItem(key, JSON.stringify(obj));
-        console.log(JSON.stringify(obj));
     } catch (err) {
         console.error(err);
     }

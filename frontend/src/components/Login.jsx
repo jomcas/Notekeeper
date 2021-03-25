@@ -40,7 +40,6 @@ var Login = () => {
           notify(res.data.message);
           setUser({email: "", password: ""});
         }
-        console.log(res.data);
       })
       .catch((err) => console.log("Error :" + err));
   }

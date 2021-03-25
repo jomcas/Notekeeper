@@ -26,8 +26,6 @@ var Register = () => {
 
     axios
       .post("/notes/add", myNotes)
-      .then((res) => console.log(res))
-      .catch((err) => console.log("Error :" + err));
   }
 
   function handleLogin(e) {
@@ -41,7 +39,7 @@ var Register = () => {
       .post("/users/findOne", myUser)
       .then((res) => {
         if (res.data.success) {
-          setInStorage('notekeeper', { token: res.data.token });
+          setInStorage("notekeeper", { token: res.data.token, fullname: res.data.fullname });
           createNotes(res.data.userId);
           history.push('/');
         }

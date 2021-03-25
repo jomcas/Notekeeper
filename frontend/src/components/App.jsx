@@ -88,7 +88,6 @@ var App = (props) => {
   }
 
   function logout() {
-    console.log("nangyayari");
 
     axios
       .get("/users/logout?token=" + token)
@@ -96,8 +95,6 @@ var App = (props) => {
         if (res.data.success) {
           setToken("");
           setInStorage("notekeeper", "");
-        } else {
-          console.log("Calling logout error");
         }
       })
       .catch((err) => console.log("Error: " + err));
@@ -131,7 +128,7 @@ var App = (props) => {
       <Footer />
       <div className="saveFab" onClick={saveNotes}>
         <Tooltip title="Save Notes" aria-label="save">
-          <Fab size="large" color="inherit" aria-label="save">
+          <Fab size="large" classsName="fab" color="inherit" aria-label="save">
             <SaveIcon />
           </Fab>
         </Tooltip>
